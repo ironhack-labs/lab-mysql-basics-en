@@ -96,7 +96,7 @@ FROM card
 GROUP BY type
 ORDER BY card_count DESC;
 
---Query 15 solution
+--Query 15 solution 
 
 SELECT account_id, SUM(amount) as total_amount
 FROM loan
@@ -127,3 +127,4 @@ FROM trans
 WHERE account_id = 396
 GROUP BY account_id, type
 ORDER BY type ASC;
+
