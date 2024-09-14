@@ -48,10 +48,7 @@ ORDER BY amount ASC
 LIMIT 5;
 
 -- Solution 8
-SELECT DISTINCT (k_symbol)
-FROM `ORDER`
-WHERe k_symbol IS NOT NULL AND TRIM (k_symbol) <>;
-ORDER BY k_symbol ASC;
+SELECT DISTINCT(k_symbol) FROM `order` WHERE k_symbol IS NOT NULL AND TRIM(k_symbol) <> '' ORDER BY k_symbol ASC;
 
 -- Solution 9
 
@@ -74,27 +71,21 @@ WHERE account_to = 30067122
 
 -- Solution 12
 
-SELECT trans_id 
-date, type, amount
-FROM trans 
-WHERE account_id = 793
-ORDER BY date DESC;
+SELECT trans_id, date, type, amount FROM trans WHERE account_id = 793 
+ORDER BY date DESC LIMIT 10;
 
 -- Solution 13
 
-SELECT district_id, COUNT(*) AS client_count
-FROM client
-WHERE district_id < 10
-GROUP BY district_id
+SELECT district_id, COUNT(*) AS client_count 
+FROM client WHERE district_id < 10 
+GROUP BY district_id 
 ORDER BY district_id ASC;
 
 -- Solution 14
 
-SELECT type, count(card_id) "TOTAL CARDS"
-FROM card
-GROUP BY type
-Order by Count(card_id) DESC
-limit 10;
+SELECT type, COUNT(card_id) AS type_ 
+FROM card GROUP BY type ORDER BY type_ 
+DESC LIMIT 10;
 
 -- Solution 15
 SELECT account_id, SUM(amount) "TOTAL AMOUNT"
@@ -113,18 +104,16 @@ ORDER BY date DESC;
 
 -- Solution 17
 
-SELECT date, duration, COUNT(*) AS loan_count
-FROM loan
-WHERE date BETWEEN 971201 AND 971231
-GROUP BY date, duration
-order by Date ASC, duration ASC;
+SELECT date, duration, COUNT(*) 
+AS loan_count FROM loan WHERE date BETWEEN 971201 AND 971231 GROUP BY date, duration ORDER BY date ASC, duration ASC;
+
+
 
 -- Solution 18
 
-SELECT account_id, type, SUM(amount) AS total_amount
-FROM trans
-WHERE account_id = 396
-GROUP BY type, account_id
+SELECT account_id, type, SUM(amount) AS total_amount 
+FROM trans WHERE account_id = 396 
+GROUP BY type ORDER BY type ASC;
 
 -- Solution 19
 SELECT account_id, type, SUM(amount) as total_amount
