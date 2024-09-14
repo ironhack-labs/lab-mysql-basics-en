@@ -71,21 +71,27 @@ WHERE account_to = 30067122
 
 -- Solution 12
 
-SELECT trans_id, date, type, amount FROM trans WHERE account_id = 793 
-ORDER BY date DESC LIMIT 10;
+SELECT trans_id, date, type, amount 
+FROM trans 
+WHERE account_id = 793 
+ORDER BY trans_id DESC 
+LIMIT 10;
 
 -- Solution 13
 
 SELECT district_id, COUNT(*) AS client_count 
-FROM client WHERE district_id < 10 
+FROM client 
+WHERE district_id < 10 
 GROUP BY district_id 
 ORDER BY district_id ASC;
 
 -- Solution 14
 
 SELECT type, COUNT(card_id) AS type_ 
-FROM card GROUP BY type ORDER BY type_ 
-DESC LIMIT 10;
+FROM card 
+GROUP BY type 
+ORDER BY type_ DESC 
+LIMIT 10;
 
 -- Solution 15
 SELECT account_id, SUM(amount) "TOTAL AMOUNT"
@@ -104,9 +110,11 @@ ORDER BY date DESC;
 
 -- Solution 17
 
-SELECT date, duration, COUNT(*) 
-AS loan_count FROM loan WHERE date BETWEEN 971201 AND 971231 GROUP BY date, duration ORDER BY date ASC, duration ASC;
-
+SELECT date, duration, COUNT(*) AS loan_count 
+FROM loan 
+WHERE date BETWEEN 971201 AND 971231 
+GROUP BY date, duration 
+ORDER BY date ASC, duration ASC;
 
 
 -- Solution 18
