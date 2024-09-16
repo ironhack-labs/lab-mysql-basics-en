@@ -78,6 +78,7 @@ ORDER BY trans_id DESC
 LIMIT 10;
 
 -- Solution 13
+
 SELECT district_id, COUNT(*) AS client_count 
 FROM client 
 WHERE district_id < 10 
