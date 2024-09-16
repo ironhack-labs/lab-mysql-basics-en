@@ -78,7 +78,6 @@ ORDER BY trans_id DESC
 LIMIT 10;
 
 -- Solution 13
-
 SELECT district_id, COUNT(*) AS client_count 
 FROM client 
 WHERE district_id < 10 
@@ -112,7 +111,7 @@ ORDER BY date DESC;
 
 SELECT date, duration, COUNT(*) AS loan_count 
 FROM loan 
-WHERE date BETWEEN 971201 AND 971231 
+WHERE date BETWEEN 971201 AND 971231
 GROUP BY date, duration 
 ORDER BY date ASC, duration ASC;
 
