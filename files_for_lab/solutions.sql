@@ -51,9 +51,9 @@ LIMIT 5;
 
 -- Query 8
 
-SELECT k_symbol
+SELECT DISTINCT k_symbol
 FROM `order`
-GROUP BY k_symbol;
+WHERE k_symbol <> ' ';
 
 -- Query 9
 
