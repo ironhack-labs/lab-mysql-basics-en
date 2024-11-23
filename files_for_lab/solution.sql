@@ -95,7 +95,7 @@ FROM
 # query 11
 
 SELECT 
-	 CAST( amount as INT)
+	CAST( amount as INT)
 FROM
 	`order`
 	WHERE account_to = 30067122;
@@ -120,16 +120,16 @@ WHERE district_id <10
 GROUP BY district_id
 Order by district_id ASC 
 
- # query 14
+# query 14
 
- SELECT 
-	 type,  count(*) 
+SELECT 
+	type,  count(*) 
 FROM
 	card
 GROUP by type	
 ORDER by count(*) DESC
  
- # query 15 
+# query 15 
 
 SELECT 
 	 account_id, sum(amount)
