@@ -1,17 +1,17 @@
 USE bank;
 
--- QUERY 1
+-- QUERY 1 --
 SELECT client_id
 FROM client
 WHERE district_id = 1
-LIMIT 5;
+LIMIT 5; 
 
--- QUERY 2
+-- QUERY 2 --
 SELECT client_id
 FROM client
 WHERE district_id = 72
 ORDER BY client_id DESC
-LIMIT 1;
+LIMIT 1; 
 
 -- QUERY 3
 SELECT amount 
