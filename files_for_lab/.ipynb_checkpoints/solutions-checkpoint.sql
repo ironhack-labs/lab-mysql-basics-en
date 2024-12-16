@@ -1,8 +1,3 @@
----
---- Author: Javier A. Dastas
---- Lab: lab-mysql-basics-en
----
-
 --- Query 1
 select client_id from client
 where district_id = 1
@@ -58,7 +53,7 @@ order by date desc
 limit  10;
 
 --- Query 13
-select district_id, count(*) as frequency from client
+select district_id, count(*) frequency from client
 where district_id < 10
 group by district_id
 order by district_id asc;
@@ -66,12 +61,12 @@ order by district_id asc;
 --- Query 14
 select type, count(*) as frequency from card
 group by type
-order by count(*) desc;
+order by frequency desc;
 
 --- Query 15
 select account_id, sum(amount) as total_amount  from loan
 group by account_id
-order by sum(amount) desc
+order by frequency desc
 limit 10;
 
 --- Query 16
@@ -81,13 +76,24 @@ group by date
 order by date desc;
 
 --- Query 17
-select date, duration,  count(*) as frequency from loan
+select date, duration,  count(*) frequency from loan
 where date between 971201 and 971231
 group by date, duration
 order by date, duration asc;
 
 --- Query 18
-select account_id, type, sum(amount) as total_amount from trans
+select account_id, type, sum(amount) total_amount from trans
 where account_id = 396 and type in ('VYDAJ','PRIJEM')
-group by account_id,  type
+group by account_id, type
 order by type;
+
+
+
+
+
+
+
+
+
+
+
