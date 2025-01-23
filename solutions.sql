@@ -30,10 +30,9 @@ ORDER BY status ASC;
 
 -- Query 5
 -- What is the `loan_id` of the highest payment received in the `loan` table?
-SELECT loan_id, MAX(payments)
+SELECT loan_id
 FROM loan
-GROUP BY loan_id
-LIMIT 1;
+WHERE payments = (SELECT MAX(payments) FROM loan);
 
 -- Query 6
 -- What is the loan `amount` of the lowest 5 `account_id`s in the `loan` table? Show the `account_id` and the corresponding `amount`
@@ -79,11 +78,12 @@ WHERE account_to = 30067122;
 SELECT trans_id, date, type, amount
 FROM trans
 WHERE account_id = 793
-ORDER BY trans_id DESC; 
+ORDER BY date DESC
+LIMIT 10;
 
 -- Query 13
 -- In the `client` table, of all districts with a `district_id` lower than 10, how many clients are from each `district_id`? Show the results sorted by the `district_id` in ascending order.
-SELECT district_id, SUM(client_id)
+SELECT district_id, COUNT(client_id)
 FROM client
 WHERE district_id < 10
 GROUP BY district_id
@@ -106,9 +106,10 @@ LIMIT 10;
 
 -- Query 16
 -- In the `loan` table, retrieve the number of loans issued for each day, before (excl) 930907, ordered by date in descending order.
-SELECT loan_id, date
+SELECT COUNT(loan_id), date
 FROM loan
 WHERE date < 930907
+GROUP BY date
 ORDER BY date DESC;
 
 -- Query 17
@@ -121,7 +122,7 @@ ORDER BY date ASC, duration ASC;
 
 -- Query 18
 -- In the `trans` table, for `account_id` 396, sum the amount of transactions for each type (`VYDAJ` = Outgoing, `PRIJEM` = Incoming). Your output should have the `account_id`, the `type` and the sum of amount, named as `total_amount`. Sort alphabetically by type.
-SELECT SUM(trans_id) as total_amount, type, account_id
+SELECT SUM(amount) as total_amount, type, account_id
 FROM trans
 WHERE account_id = 396
 GROUP BY type, account_id
